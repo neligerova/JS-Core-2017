@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Load github repos</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<button onclick="loadRepos()">Load Repos</button>
+<div id="res"></div>
+<script>
+    function loadRepos() {
+        $.get('https://api.github.com/users/neligerova/repos').then(display)
+    }
+    function display(repos) {
+        let output = document.getElementById('res');
+        output.innerHTML = '<ul>';
+        for (let repo of repos) {
+            output.innerHTML += `<li>${repo.name}</li>`
+        }
+        output.innerHTML += '</ul>'
+    }
+</script>
+</body>
+</html>

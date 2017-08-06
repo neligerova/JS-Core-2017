@@ -17,15 +17,16 @@
             error: (e) => console.log(`Error: ` + JSON.stringify(e))
         };
         $.ajax(request)
-    }
-    function display(repos) {
+        function display(repos) {
         let output = document.getElementById('res');
         output.innerHTML = '<ul>';
         for (let repo of repos) {
             output.innerHTML += `<li>${repo.name}</li>`
         }
         output.innerHTML += '</ul>'
+        }
     }
+
 </script>
 </body>
 </html>
